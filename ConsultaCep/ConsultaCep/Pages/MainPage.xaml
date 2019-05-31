@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ConsultaCep.Pages.MainPage">
+
+    <StackLayout BackgroundColor="Transparent">
+        <Label Text="CEP:" FontAttributes="Bold" />
+        <Entry Keyboard="Numeric" Text="{Binding CEP}" />
+        <Label Text="{Binding CEPMascara}" FontAttributes="Bold" IsVisible="{Binding IsCEPMascaraVisible}" />
+        <Button Text="Buscar e Cadastrar" Command="{Binding BuscarCep}" BackgroundColor="Blue" />
+        <ListView VerticalOptions="FillAndExpand"
+              ItemsSource="{Binding _Retornos}"
+              RefreshCommand="{Binding RefreshCommand}"
+              IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+              >
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <!--<RowDefinition Height="Auto"/>-->
+                                <!--<RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>-->
+                            </Grid.RowDefinitions>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Label Grid.Row="0" Grid.Column="0" Text="CEP" FontAttributes="Bold"/>
+                            <Label Grid.Row="0" Grid.Column="1" Text="{Binding Cep}" HorizontalTextAlignment="Start" />
+                            <Label Grid.Row="1" Grid.Column="0" Text="{Binding Logradouro}" HorizontalTextAlignment="Start" />
+
+
+
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+
+</ContentPage>

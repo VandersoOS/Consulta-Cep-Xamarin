@@ -1,0 +1,1 @@
+C:\Users\ambva\source\repos\ConsultaCep\ConsultaCep\ConsultaCep.UWP\ConsultaCep.UWP.csproj;x86
